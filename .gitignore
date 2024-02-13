@@ -1,5 +1,5 @@
 /resultados/*/
 executar-testes-final.sh
+executar-testes-final-polling.sh
 RESULTADOS.md
 RESULTADOS-HEADER.md
-.DS_Store
