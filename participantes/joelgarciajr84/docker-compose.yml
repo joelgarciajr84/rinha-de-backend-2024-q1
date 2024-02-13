@@ -23,22 +23,19 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - api01
+      - api02
     ports:
       - 9999:9999
 
   mongo:
-    image: mongo:7.0.3
-    ports:
-      - 27017:27017
-    volumes:
-      - ./mongo-init-scripts/:/mongo-init-scripts/
-      - ./mongo-init-scripts/mongo-import-script.sh:/docker-entrypoint-initdb.d/mongo-import-script.sh
-    healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    command: ["mongod", "--quiet"]
+      image: bitnami/mongodb:5.0
+      ports:
+        - 27017:27017
+      environment:
+        MONGODB_REPLICA_SET_MODE: primary
+        ALLOW_EMPTY_PASSWORD: 'yes'
+      volumes:
+        - ./mongo-init-scripts:/docker-entrypoint-initdb.d
 
 networks:
   default:

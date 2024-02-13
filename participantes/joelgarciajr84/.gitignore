@@ -5,8 +5,9 @@
 /src
 /dist
 /node_modules
-.vscode/
+/vscode/
 /test
+.DS_Store
 # Logs
 logs
 *.log
