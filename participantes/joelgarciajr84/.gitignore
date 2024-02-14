@@ -1,11 +1,7 @@
 # compiled output
-.eslintrc.js
-.prettierrc
-*.json
-/src
+
 /dist
 /node_modules
-/vscode/
 /test
 /load-test/
 # Logs
