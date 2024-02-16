@@ -6,6 +6,7 @@ import { ValidationService } from './validations.service';
 
 @Module({
   imports: [
+    
     MongooseModule.forFeature([{ name: 'clientes', schema: {} }]),
     MongooseModule.forFeature([{ name: 'transacoes', schema: {} }]),
   ],

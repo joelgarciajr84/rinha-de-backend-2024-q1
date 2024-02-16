@@ -1,6 +1,5 @@
 import {
   Injectable,
-  BadRequestException,
   InternalServerErrorException,
   UnprocessableEntityException,
   NotFoundException,
@@ -128,13 +127,12 @@ export class ClientesService {
     session: ClientSession,
   ): Promise<any> {
     try {
-      const lastTransactions = this.transacoesModel
-        .find({
-          clienteID: clientid,
-        })
+      const lastTransactions = await this.transacoesModel
+        .find({ clienteID: clientid })
         .session(session)
         .sort({ realizada_em: -1 })
-        .limit(10);
+        .limit(10)
+        .select({ _id: 0, valor: 1, tipo: 1, descricao: 1 });
 
       return lastTransactions;
     } catch (error) {

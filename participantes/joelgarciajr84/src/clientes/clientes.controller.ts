@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, ParseIntPipe, Post, UseInterceptors } from '@nestjs/common';
 import { ClientesService } from './clientes.service';
 import { CreateTransactionDto } from './create-transaction.dto';
 import { ExtractResponseDto } from './extract-response.dto';

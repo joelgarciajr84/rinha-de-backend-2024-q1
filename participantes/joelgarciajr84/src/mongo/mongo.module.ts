@@ -1,4 +1,3 @@
-// mongo.module.ts
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongoConfigModule } from './mongo-config.module';
